@@ -1,0 +1,5 @@
+{
+    "teams": ["example-team-1"],
+    "action": "comment",
+    "includes": "directory/*"
+}
