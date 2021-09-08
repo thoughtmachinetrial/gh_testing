@@ -25,8 +25,8 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1.8.0
         with:
-          url: 'http://yoursite.com/api'
-          method: 'POST'
+          url: 'http://google.com'
+          method: 'GET'
          # username: ${{ secrets.AWX_USER }}
          # password: ${{ secrets.AWX_PASSWORD }}  
       - name: Show Response
