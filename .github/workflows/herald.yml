@@ -1,27 +1,31 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Herald actions
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on pull request events but only for the master branch
   pull_request:
     branches: [ master ]
+    types: [edited, opened, synchronize, reopened]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Calls an endpoint
-      - name: Add someone as a reviewer when certain files are changed
+      - name: Auth for herald rules # don't really need a name here
+        id: auth
+        uses: jnwng/github-app-installation-token-action@v1
+        with:
+          appId: ${{ secrets.UHA_APP_ID }}
+          installationId: ${{ secrets.UHA_INSTALLATION_ID }}
+          privateKey: ${{ secrets.UHA_PRIVATE_KEY }}
+      - uses: actions/checkout@master
+      - name: Run herald rules
         uses: gagoar/use-herald-action@master
         id: herald
         with:
