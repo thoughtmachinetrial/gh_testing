@@ -17,13 +17,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Auth for herald rules # don't really need a name here
-        id: auth
-        uses: jnwng/github-app-installation-token-action@v1
-        with:
-          appId: ${{ secrets.UHA_APP_ID }}
-          installationId: ${{ secrets.UHA_INSTALLATION_ID }}
-          privateKey: ${{ secrets.UHA_PRIVATE_KEY }}
+    # ** The first auth step here seems to be required before the herald stuff works on a private repo. Broken for now ** 
+      #- name: Auth for herald rules # don't really need a name here
+      #  id: auth
+      #  uses: jnwng/github-app-installation-token-action@v1
+      #  with:
+      #    appId: ${{ secrets.UHA_APP_ID }}
+      #    installationId: ${{ secrets.UHA_INSTALLATION_ID }}
+      #    privateKey: ${{ secrets.UHA_PRIVATE_KEY }}
       - uses: actions/checkout@master
       - name: Run herald rules
         uses: gagoar/use-herald-action@master
