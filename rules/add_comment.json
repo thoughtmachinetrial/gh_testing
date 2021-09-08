@@ -1,0 +1,6 @@
+{
+    "action": "comment",
+    "includes": "*",
+    "excludes": "directory/notThisFile.js",
+    "customMessage": "Thank you for this change. Please wait til tests are green before merging"
+}

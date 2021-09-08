@@ -1,0 +1,6 @@
+{
+    "name": "This is a rule to add @fische as a reviewer when *js files change",
+    "includes": ["*js"],
+    "action": "review",
+    "users": ["fische"]
+}
