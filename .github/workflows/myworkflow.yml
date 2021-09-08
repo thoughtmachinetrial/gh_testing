@@ -31,8 +31,8 @@ jobs:
          # password: ${{ secrets.AWX_PASSWORD }}  
       - name: Show Response
         run: echo ${{ steps.myRequest.outputs.response }}
-      - name: Post request
-        uses: fjogeleit/http-request-action@v1.8.0
-        with:
-          url: https://httpbin.org/delay/:50
-          method: 'POST'
+     # - name: Post request
+     #   uses: fjogeleit/http-request-action@v1.8.0
+     #   with:
+     #     url: https://httpbin.org/delay/:50
+     #     method: 'POST'
